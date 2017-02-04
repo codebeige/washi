@@ -1,10 +1,17 @@
 (ns washi.parser
   (:require [clojure.spec :as s]))
 
+(def text? (some-fn string? number?))
+
+(defn text [n]
+  (if (text? n) (str n) ::s/invalid))
+
+(s/def ::text (s/conformer text))
+
 (s/def ::attributes (s/map-of keyword? string?))
 
 (defn tag-name [n]
-  (if (keyword? n) (name n) :clojure.spec/invalid))
+  (if (keyword? n) (name n) ::s/invalid))
 
 (s/def ::tag-name (s/conformer tag-name keyword))
 
@@ -12,7 +19,7 @@
                                     :attributes (s/? ::attributes))
                         :body (s/* ::template)))
 
-(s/def ::template (s/or :text string?
+(s/def ::template (s/or :text ::text
                         :element ::element
                         :collection (s/coll-of ::template)))
 
