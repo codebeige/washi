@@ -4,3 +4,6 @@
                   [adzerk/boot-test "1.2.0" :scope "test"]])
 
 (require '[adzerk.boot-test :refer [test]])
+
+(task-options!
+ test {:include #"-test$"})

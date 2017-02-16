@@ -17,5 +17,5 @@ For continuously running all tests on every code change run the following
 command from inside the project:
 
 ```zsh
-% boot watch test -I "-test$"
+% boot watch test
 ```
