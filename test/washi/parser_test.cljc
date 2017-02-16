@@ -8,7 +8,6 @@
     (are [input output] (= output (s/conform ::parser/text input))
          "I need writing." "I need writing."
          28                "28"
-         2/3               "2/3"
          6.7               "6.7"
          \*                "*"))
   (testing "invalid"
