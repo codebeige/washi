@@ -13,9 +13,15 @@ writing our markup?
 
 ## Development
 
-For continuously running all tests on every code change run the following
-command from inside the project:
+For continuously running tests on every code change trigger the following
+command:
 
-```zsh
+```sh
 % boot watch test
+```
+
+In order to run the tests in a JS environment use:
+
+```sh
+% boot test-cljs
 ```
